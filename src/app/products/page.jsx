@@ -4,18 +4,30 @@ import { products } from '@/api'
 import Image from 'next/image'
 
 export default function Products() {
-    const [valueInput, setValueInput] = useState(1)
-    const productsIphone = products
+    //Estado que contiene todos los productos 
+    const [productsIphone, setProductsIphone] = useState(products)
 
-    const handleSum = () => {
-        setValueInput(valueInput + 1)
-    }
-
-    const handleRest = () => {
-        if (valueInput !== 1) {
-            setValueInput(valueInput - 1)
-        }
-    }
+    //Funcion para aumentar la cantidad
+    const handleSum = (id) => {
+        const updatedProducts = productsIphone.map(product => {
+            if (product.id === id) {
+                return { ...product, cantidad: product.cantidad + 1 };
+            }
+            return product;
+        });
+        setProductsIphone(updatedProducts);
+    };
+    
+    //Funcion para restar la cantidad
+    const handleRest = (id) => {
+        const updatedProducts = productsIphone.map(product => {
+            if (product.id === id && product.cantidad > 1) {
+                return { ...product, cantidad: product.cantidad - 1 };
+            }
+            return product;
+        });
+        setProductsIphone(updatedProducts);
+    };
 
     return (
         <>
@@ -35,13 +47,9 @@ export default function Products() {
                                 <p className='text-sm'>{product.descripcion}</p>
                                 <span>Cantidad:</span>
                                 <div className='flex items-center gap-3'>
-                                    <button className='border p-2' onClick={handleRest}>-</button>
-                                    <input
-                                        type="string"
-                                        className='border p-2 w-12 text-center'
-                                        value={valueInput}
-                                    />
-                                    <button className='border p-2' onClick={handleSum}>+</button>
+                                    <button className='border p-2'onClick={() => handleRest(product.id)} >-</button>
+                                    <span>{product.cantidad}</span>
+                                    <button className='border p-2' onClick={() => handleSum(product.id)}>+</button>
                                 </div>
                                 <button className='bg-blue-400 p-2'>Comprar Ahora</button>
                             </div>
