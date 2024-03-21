@@ -1,4 +1,5 @@
 import "./globals.css";
+import { ProductsProvider } from "@/context/ProductsContext";
 import Navbar from "../components/Navbar";
 
 export const metadata = {
@@ -13,7 +14,9 @@ export default function RootLayout({ children }) {
         <header>
           <Navbar />
         </header>
-        <main className="py-8">{children}</main>
+        <main className="py-8">
+          <ProductsProvider>{children}</ProductsProvider>
+        </main>
         <footer className="text-center leading-[3rem]">
           © {new Date().getFullYear()} AsTienda
         </footer>

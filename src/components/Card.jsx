@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-export default function Card({ product, handleRest, handleSum }) {
+export default function Card({ product }) {
     return (
         <div className='flex justify-between border border-black rounded-md p-4 gap-6'>
             <Image
@@ -16,12 +16,37 @@ export default function Card({ product, handleRest, handleSum }) {
                 <p className='text-sm'>{product.descripcion}</p>
                 <span>Cantidad:</span>
                 <div className='flex items-center gap-3'>
-                    <button className='border p-2' onClick={() => handleRest(product.id)} >-</button>
+                    <button className='border p-2'  >-</button>
                     <span>{product.cantidad}</span>
-                    <button className='border p-2' onClick={() => handleSum(product.id)}>+</button>
+                    <button className='border p-2'>+</button>
                 </div>
                 <button className='bg-blue-400 p-2'>Comprar Ahora</button>
             </div>
         </div>
     )
+
+
+
+    // return (
+    //     <div className='flex justify-between border border-black rounded-md p-4 gap-6'>
+    //         <Image
+    //             src={product.imagen}
+    //             alt={`Imagen de ${product.titulo}`}
+    //             width={200}
+    //             height={620}
+    //         />
+    //         <div className='flex flex-col justify-start gap-1'>
+    //             <h2>{product.titulo}</h2>
+    //             <p className='font-bold'>{product.precio}</p>
+    //             <p className='text-sm'>{product.descripcion}</p>
+    //             <span>Cantidad:</span>
+    //             <div className='flex items-center gap-3'>
+    //                 <button className='border p-2' onClick={() => handleRest(product.id)} >-</button>
+    //                 <span>{product.cantidad}</span>
+    //                 <button className='border p-2' onClick={() => handleSum(product.id)}>+</button>
+    //             </div>
+    //             <button className='bg-blue-400 p-2'>Comprar Ahora</button>
+    //         </div>
+    //     </div>
+    // )
 }
