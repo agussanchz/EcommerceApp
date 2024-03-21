@@ -5,8 +5,12 @@ import Image from 'next/image'
 
 export default function Checkout() {
   const { productId } = useProducts()
-  console.log(productId)
+
+
   return (
+    productId.length === 0 ?
+      "No ha seleccionado ningun producto"
+      :
       <div className='flex justify-between border border-black rounded-md p-4 gap-6'>
         <Image
           src={productId.imagen}
@@ -19,6 +23,7 @@ export default function Checkout() {
           <p className='font-bold'>{productId.precio}</p>
           <p className='text-sm'>{productId.descripcion}</p>
           <span>Cantidad:  <span>{productId.cantidad}</span></span>
+          <span>Total de la compra: {productId.cantidad * productId.precio}</span>
           <button className='bg-blue-400 p-2'>Finalizar Compra</button>
         </div>
       </div>
