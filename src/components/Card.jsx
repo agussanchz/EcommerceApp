@@ -3,9 +3,11 @@ import Image from 'next/image'
 import React from 'react'
 import { useProducts } from '@/context/ProductsContext'
 
+
 export default function Card({ product }) {
     // Obtengo las funciones para restar y aumentar la cantidad de useContext
-    const { handleSum, handleRest } = useProducts()
+    const { handleSum, handleRest, handleProductId } = useProducts()
+
 
     return (
         <div className='flex justify-between border border-black rounded-md p-4 gap-6'>
@@ -25,7 +27,7 @@ export default function Card({ product }) {
                     <span>{product.cantidad}</span>
                     <button className='border p-2' onClick={() => handleSum(product.id)}>+</button>
                 </div>
-                <button className='bg-blue-400 p-2'>Comprar Ahora</button>
+                <button className='bg-blue-400 p-2' onClick={() => handleProductId(product.id)}>Comprar Ahora</button>
             </div>
         </div>
     )

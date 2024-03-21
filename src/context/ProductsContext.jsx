@@ -1,6 +1,7 @@
 'use client'
 import { createContext, useContext, useState } from "react";
 import { products } from '@/api'
+import { useRouter } from "next/navigation";
 
 export const ProductsContext = createContext()
 
@@ -13,7 +14,9 @@ export const useProducts = () => {
 export const ProductsProvider = ({ children }) => {
     // Estado que contiene los productos 
     const [productsIphone, setProductsIphone] = useState(products);
+    const [productId, setProductId] = useState([]) 
 
+    const router = useRouter()
 
     //Funcion para aumentar la cantidad
     const handleSum = (id) => {
@@ -37,12 +40,25 @@ export const ProductsProvider = ({ children }) => {
         setProductsIphone(updatedProducts);
     };
 
+    // Funcion para obtener producto por ID
+    const handleProductId = (id) => {
+        const productId = productsIphone.find((product => {
+            if(product.id === id){
+                return product
+            }
+        }))
+        router.push('/products/checkout')
+        setProductId(productId)
+    }
+
     return (
         <ProductsContext.Provider
             value={{ 
                 productsIphone, 
+                productId,
                 handleRest, 
                 handleSum,
+                handleProductId
             }}
         >
             {children}
