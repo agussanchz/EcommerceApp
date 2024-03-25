@@ -1,11 +1,17 @@
 'use client'
 import React from 'react'
+import { useRouter } from "next/navigation";
 import { useProducts } from '@/context/ProductsContext'
 import Image from 'next/image'
 
 export default function Checkout() {
   const { productId } = useProducts()
 
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push('/products/sucess')
+  }
 
   return (
     productId.length === 0 ?
@@ -24,7 +30,7 @@ export default function Checkout() {
           <p className='text-sm'>{productId.descripcion}</p>
           <span>Cantidad:  <span>{productId.cantidad}</span></span>
           <span>Total de la compra: {productId.cantidad * productId.precio}</span>
-          <button className='bg-blue-400 p-2'>Finalizar Compra</button>
+          <button className='bg-blue-400 p-2' onClick={() => handleClick()}>Finalizar Compra</button>
         </div>
       </div>
   )
