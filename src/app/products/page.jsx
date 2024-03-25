@@ -5,11 +5,10 @@ import Card from '@/components/Card'
 
 export default function Products() {
     // Me traigo los productos del useContext
-    const { productsIphone } = useProducts()
+    const { productsIphone, filteredProducts, setFilteredProducts } = useProducts()
 
     // Estados para manejar la busqueda
     const [search, setSearch] = useState('')
-    const [filteredProducts, setFilteredProducts] = useState([])
 
     // Funcion que maneja la busqueda
     const handleChange = (e) => {
@@ -29,7 +28,9 @@ export default function Products() {
         if (search.length === 2) {
             setFilteredProducts(productsIphone)
         }
+        console.log(search.length)
     }
+
 
     // UseEffect que me renderiza primero todos los productos
     useEffect(() => {

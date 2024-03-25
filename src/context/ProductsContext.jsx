@@ -14,36 +14,37 @@ export const useProducts = () => {
 export const ProductsProvider = ({ children }) => {
     // Estado que contiene los productos 
     const [productsIphone, setProductsIphone] = useState(products);
-    const [productId, setProductId] = useState([]) 
+    const [filteredProducts, setFilteredProducts] = useState([])
+    const [productId, setProductId] = useState([])
 
     const router = useRouter()
 
     //Funcion para aumentar la cantidad
     const handleSum = (id) => {
-        const updatedProducts = productsIphone.map(product => {
+        const updatedProducts = filteredProducts.map(product => {
             if (product.id === id) {
                 return { ...product, cantidad: product.cantidad + 1 };
             }
             return product;
         });
-        setProductsIphone(updatedProducts);
+        setFilteredProducts(updatedProducts);
     };
 
     //Funcion para restar la cantidad
     const handleRest = (id) => {
-        const updatedProducts = productsIphone.map(product => {
+        const updatedProducts = filteredProducts.map(product => {
             if (product.id === id && product.cantidad > 1) {
                 return { ...product, cantidad: product.cantidad - 1 };
             }
             return product;
         });
-        setProductsIphone(updatedProducts);
+        setFilteredProducts(updatedProducts);
     };
 
     // Funcion para obtener producto por ID
     const handleProductId = (id) => {
-        const productId = productsIphone.find((product => {
-            if(product.id === id){
+        const productId = filteredProducts.find((product => {
+            if (product.id === id) {
                 return product
             }
         }))
@@ -51,14 +52,17 @@ export const ProductsProvider = ({ children }) => {
         setProductId(productId)
     }
 
+
     return (
         <ProductsContext.Provider
-            value={{ 
-                productsIphone, 
+            value={{
+                productsIphone,
                 productId,
-                handleRest, 
+                filteredProducts,
+                handleRest,
                 handleSum,
-                handleProductId
+                handleProductId,
+                setFilteredProducts
             }}
         >
             {children}
