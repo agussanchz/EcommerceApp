@@ -27,7 +27,8 @@ export default function Card({ product }) {
                     <span>{product.cantidad}</span>
                     <button className='border p-2' onClick={() => handleSum(product.id)}>+</button>
                 </div>
-                <button className='bg-blue-400 p-2' onClick={() => handleProductId(product.id)}>Comprar Ahora</button>
+                <button className='bg-blue-400 p-2 rounded-md' onClick={() => handleProductId(product.id)}>Comprar Ahora</button>
+                <button className='bg-blue-200 p-2 rounded-md'>Agregar al carrito</button>
             </div>
         </div>
     )
