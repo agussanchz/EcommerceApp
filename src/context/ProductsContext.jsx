@@ -16,6 +16,7 @@ export const ProductsProvider = ({ children }) => {
     const [productsIphone, setProductsIphone] = useState(products);
     const [filteredProducts, setFilteredProducts] = useState([])
     const [productId, setProductId] = useState([])
+    const [cart, setCart] = useState([])
 
     const router = useRouter()
 
@@ -52,6 +53,17 @@ export const ProductsProvider = ({ children }) => {
         setProductId(productId)
     }
 
+    // Funcion para obtener producto por ID y agregar al carrito
+    const handleCart = (id) => {
+        const productId = filteredProducts.find((product => {
+            if (product.id === id) {
+                return product
+            }
+        }))
+        setCart({...cart, productId})
+    }
+
+
 
     return (
         <ProductsContext.Provider
@@ -59,10 +71,12 @@ export const ProductsProvider = ({ children }) => {
                 productsIphone,
                 productId,
                 filteredProducts,
+                cart,
                 handleRest,
                 handleSum,
                 handleProductId,
-                setFilteredProducts
+                setFilteredProducts,
+                handleCart
             }}
         >
             {children}
