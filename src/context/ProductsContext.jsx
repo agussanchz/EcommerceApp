@@ -61,6 +61,7 @@ export const ProductsProvider = ({ children }) => {
             }
         }))
         setCart({...cart, productId})
+        alert("Producto agregado al carrito")
     }
 
 

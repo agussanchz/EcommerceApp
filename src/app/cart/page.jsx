@@ -39,6 +39,7 @@ export default function page() {
           <span>Cantidad:  <span>{cart.productId.cantidad}</span></span>
           <span>Total de la compra: {cart.productId.cantidad * cart.productId.precio}</span>
           <button className='bg-blue-400 p-2' onClick={() => handleClick()}>Finalizar Compra</button>
+          <button className='bg-red-500 p-2'>Eliminar</button>
         </div>
       </div>
   )
