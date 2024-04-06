@@ -86,7 +86,8 @@ export const ProductsProvider = ({ children }) => {
                 handleProductId,
                 setFilteredProducts,
                 handleCart,
-                handleDelete
+                handleDelete,
+                setCart
             }}
         >
             {children}
