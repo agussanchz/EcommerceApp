@@ -4,6 +4,7 @@ import { SlMenu } from "react-icons/sl";
 import { GrClose } from "react-icons/gr";
 import { FaCartShopping } from "react-icons/fa6";
 import Link from 'next/link';
+import { useProducts } from '@/context/ProductsContext';
 
 // Componente que tiene las opciones del menu para celulares
 function OptionsNav({ closeMenu }) {
@@ -22,6 +23,9 @@ export default function Navbar() {
   // Estado para abrir o cerrar el menu
   const [open, setOpen] = useState(true)
 
+  const { cart } = useProducts()
+  console.log(cart)
+
   const handleClick = () => {
     setOpen(!open)
   }
@@ -30,9 +34,10 @@ export default function Navbar() {
     <>
       <nav className='flex justify-between bg-red-400 p-3 items-center'>
         <Link className='font-bold' href='/'>AsPhone</Link>
-        <div className='flex gap-4'>
-          <Link href={'/cart'}>
+        <div className='flex items-center gap-4'>
+          <Link href={'/cart'} className='flex gap-2 items-center'>
             <FaCartShopping />
+            {cart.length}
           </Link>
           <span className='cursor-pointer' onClick={handleClick}>
             {open ? <SlMenu /> : <GrClose />}

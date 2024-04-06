@@ -11,12 +11,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <header>
-          <Navbar />
-        </header>
-        <main className="py-8">
-          <ProductsProvider>{children}</ProductsProvider>
-        </main>
+        <ProductsProvider>
+          <header>
+            <Navbar />
+          </header>
+          <main className="py-8">
+            {children}
+          </main>
+        </ProductsProvider>
         <footer className="text-center leading-[3rem]">
           © {new Date().getFullYear()} AsTienda
         </footer>
