@@ -64,6 +64,14 @@ export const ProductsProvider = ({ children }) => {
         alert("Producto agregado al carrito")
     }
 
+    // Funcion para eliminar del carrito 
+    const handleDelete = (id) => {
+        const productId = cart.filter((product => {
+            const result = product.id !== id
+            return result
+        }))
+        setCart(productId)
+    }
 
 
     return (
@@ -77,7 +85,8 @@ export const ProductsProvider = ({ children }) => {
                 handleSum,
                 handleProductId,
                 setFilteredProducts,
-                handleCart
+                handleCart,
+                handleDelete
             }}
         >
             {children}

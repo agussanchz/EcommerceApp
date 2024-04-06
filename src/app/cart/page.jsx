@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 
 export default function Page() {
-  const { cart } = useProducts()
+  const { cart, handleDelete } = useProducts()
   const router = useRouter()
 
   const handleClick = () => {
@@ -40,7 +40,7 @@ export default function Page() {
               <span>Cantidad: <span>{prod.cantidad}</span></span>
               <span>Total de la compra: {prod.cantidad * prod.precio}</span>
               <button className='bg-blue-400 p-2' onClick={() => handleClick()}>Finalizar Compra</button>
-              <button className='bg-red-500 p-2'>Eliminar</button>
+              <button className='bg-red-500 p-2' onClick={() => handleDelete(prod.id)}>Eliminar</button>
             </div>
           </div>
         ))
