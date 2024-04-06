@@ -9,12 +9,13 @@ export default function Products() {
 
     // Estados para manejar la busqueda
     const [search, setSearch] = useState('')
+    const [error, setError] = useState('')
 
     // Funcion que maneja la busqueda
     const handleChange = (e) => {
         setSearch(e.target.value)
         if (search.length > 2) {
-            const filterValues = productsIphone.filter((prod) => {
+            let filterValues = productsIphone.filter((prod) => {
                 const productCategory = prod.categoria.toLowerCase()
                 const q = e.target.value.toLowerCase()
                 if (productCategory.includes(q)) {
@@ -22,13 +23,19 @@ export default function Products() {
                 }
                 return false
             })
+            
+            if(filterValues.length === 0){
+                setError("Error en la busqueda, verifique si el producto existe.")
+            }else{
+                setError("")
+            }
             setFilteredProducts(filterValues)
         }
 
         if (search.length === 2) {
             setFilteredProducts(productsIphone)
         }
-        console.log(search.length)
+        
     }
 
 
@@ -47,7 +54,11 @@ export default function Products() {
                     value={search}
                     onChange={handleChange}
                 />
-
+                {
+                    <span className='text-sm text-red-500'>
+                        {error}
+                    </span>
+                }
                 {filteredProducts.map((product) => (
                     <Card
                         product={product}
