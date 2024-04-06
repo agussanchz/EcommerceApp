@@ -60,7 +60,7 @@ export const ProductsProvider = ({ children }) => {
                 return product
             }
         }))
-        setCart([productId])
+        setCart([...cart, productId])
         alert("Producto agregado al carrito")
     }
 
