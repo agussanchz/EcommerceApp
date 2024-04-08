@@ -55,12 +55,29 @@ export const ProductsProvider = ({ children }) => {
 
     // Funcion para obtener producto por ID y agregar al carrito
     const handleCart = (id) => {
-        const productId = filteredProducts.find((product => {
+        let productId = filteredProducts.find((product => {
             if (product.id === id) {
                 return product
             }
         }))
-        setCart([...cart, productId])
+
+        //debo buscar dentro del carrito si el producto recibido ya existe
+        const findProduct = cart.find((prod) => prod.id === productId.id)
+        // si ese producto existe, debo sumarle la cantidad nueva que recibe
+        if (findProduct) {
+            const updatedCart = cart.map(prod => {
+                if (prod.id === productId.id) {
+                    return {
+                        ...prod,
+                        cantidad: prod.cantidad + productId.cantidad
+                    };
+                }
+                return prod;
+            });
+            setCart(updatedCart);
+        }else {
+            setCart([...cart, productId])
+        }
         alert("Producto agregado al carrito")
     }
 
@@ -72,7 +89,6 @@ export const ProductsProvider = ({ children }) => {
         }))
         setCart(productId)
     }
-
 
     return (
         <ProductsContext.Provider
