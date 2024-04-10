@@ -55,7 +55,7 @@ export default function Products() {
                     onChange={handleChange}
                 />
                 {
-                    <span className='text-sm text-red-500'>
+                    <span className='text-sm text-orange-400'>
                         {error}
                     </span>
                 }

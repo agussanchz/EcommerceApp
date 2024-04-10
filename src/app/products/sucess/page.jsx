@@ -2,6 +2,13 @@ import React from 'react'
 
 export default function page() {
   return (
-    <h2 className='p-3 flex justify-center text-center items-center font-bold text-6xl'>Felicitaciones su compra ha sido realizada con exito! :)</h2>
+    <section className='flex flex-col text-slate-200 p-3 justify-center text-center items-center font-bold text-7xl'>
+      <span>Felicidades</span>
+      <span>su compra ha sido</span>
+      <span>realizada</span>
+      <span>con exito!</span>
+      <span className='text-orange-400'>:)</span>
+    </section>
+   
   )
 }

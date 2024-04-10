@@ -18,19 +18,21 @@ export default function Page() {
   }
 
   return (
-    <div className='flex flex-col justify-center gap-4 items-center'>
+    <div className='flex flex-col justify-center  p-4 gap-4 items-center'>
       {cart.length === 0 ? (
         <>
-          <h2 className='font-bold text-7xl'>
-            Su carrito está vacío :(
+        <div className='flex flex-col gap-12 items-center'>
+          <h2 className='font-bold text-8xl text-slate-200'>
+            Su carrito está vacío <span className='text-orange-400'>:(</span>
           </h2>
-          <Link href={'/products'} className='bg-blue-400 p-2 rounded-md'>
+          <Link href={'/products'} className='font-bold bg-orange-400 rounded-md  p-3 text-slate-200 hover:border hover:border-orange-400 hover:bg-transparent'>
             Descubrir productos
           </Link>
+        </div>
         </>
       ) : (
         cart.map((prod, index) => (
-          <div key={index} className='flex justify-between border border-black rounded-md p-4 gap-6'>
+          <div key={index} className='flex flex-col justify-between items-center p-4 border border-gray-400 rounded-md text-slate-200'>
             <Image
               src={prod.imagen}
               alt={`Imagen de ${prod.titulo}`}
@@ -38,13 +40,13 @@ export default function Page() {
               height={620}
             />
             <div className='flex flex-col justify-start gap-1'>
-              <h2>{prod.titulo}</h2>
-              <p className='font-bold'>{prod.precio}</p>
+              <h2 className='text-orange-400 font-bold'>{prod.titulo}</h2>
+              <p className='font-bold'>${prod.precio} US</p>
               <p className='text-sm'>{prod.descripcion}</p>
               <span>Cantidad: <span>{prod.cantidad}</span></span>
-              <span>Total de la compra: {prod.cantidad * prod.precio}</span>
-              <button className='bg-blue-400 p-2' onClick={handleClick}>Finalizar Compra</button>
-              <button className='bg-red-500 p-2' onClick={() => handleDelete(prod.id)}>Eliminar</button>
+              <span>Total de la compra: ${prod.cantidad * prod.precio}</span>
+              <button className='bg-orange-400 p-2 rounded-md' onClick={handleClick}>Finalizar Compra</button>
+              <button className='bg-orange-50 p-2 text-black rounded-md' onClick={() => handleDelete(prod.id)}>Eliminar</button>
             </div>
           </div>
         ))

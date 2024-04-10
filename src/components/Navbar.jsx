@@ -10,8 +10,8 @@ import { useProducts } from '@/context/ProductsContext';
 function OptionsNav({ closeMenu }) {
 
   return (
-    <div className='bg-red-400 absolute flex justify-center w-screen'>
-      <ul className='flex flex-col justify-center items-center p-3'>
+    <div className='bg-[#000]  absolute flex justify-center w-screen h-screen animate-fade-down'>
+      <ul className='flex flex-col font-bold text-6xl gap-5 justify-center items-center p-3 text-orange-400 '>
         <Link href='/' onClick={closeMenu}>Inicio</Link>
         <Link href='/products' onClick={closeMenu}>Productos</Link>
       </ul>
@@ -24,7 +24,6 @@ export default function Navbar() {
   const [open, setOpen] = useState(true)
 
   const { cart } = useProducts()
-  console.log(cart)
 
   const handleClick = () => {
     setOpen(!open)
@@ -32,14 +31,14 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className='flex justify-between bg-red-400 p-3 items-center'>
-        <Link className='font-bold' href='/'>AsPhone</Link>
-        <div className='flex items-center gap-4'>
-          <Link href={'/cart'} className='flex gap-2 items-center'>
+      <nav className='flex justify-between bg-[#0a0a0a] p-6 items-center'>
+        <Link className='font-bold text-orange-400 text-3xl' href='/'>AsPhone</Link>
+        <div className='flex items-center gap-7'>
+          <Link href={'/cart'} className='flex gap-2 items-center text-white'>
             <FaCartShopping />
             {cart.length}
           </Link>
-          <span className='cursor-pointer' onClick={handleClick}>
+          <span className='cursor-pointer text-white' onClick={handleClick}>
             {open ? <SlMenu /> : <GrClose />}
           </span>
         </div>

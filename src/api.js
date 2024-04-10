@@ -13,7 +13,7 @@ export const products = [
     {
         id: 2,
         titulo: "iPhone 12",
-        imagen: "/iphone12.jpg",
+        imagen: "/iphone12.png",
         descripcion: "iPhone con diseño clásico y chip A14 Bionic, sistema de cámara dual avanzado y pantalla Super Retina XDR.",
         precio: 799,
         stock: 15,
@@ -23,7 +23,7 @@ export const products = [
     {
         id: 3,
         titulo: "iPhone 13",
-        imagen: "/iphone13.jpg",
+        imagen: "/iphone13.png",
         descripcion: "El último modelo de iPhone con pantalla Super Retina XDR, chip A15 Bionic y sistema de cámara dual avanzado.",
         precio: 999,
         stock: 25,
@@ -33,7 +33,7 @@ export const products = [
     {
         id: 4,
         titulo: "iPhone 14",
-        imagen: "/iphone14.jpg",
+        imagen: "/iphone14.png",
         descripcion: "iPhone con chip A16 Bionic, sistema de cámara triple de 16 MP, pantalla OLED de 6.7 pulgadas.",
         precio: 1199,
         stock: 18,

@@ -17,21 +17,23 @@ export default function Checkout() {
     productId.length === 0 ?
       "No ha seleccionado ningun producto"
       :
-      <div className='flex justify-between border border-black rounded-md p-4 gap-6'>
-        <Image
-          src={productId.imagen}
-          alt={`Imagen de ${productId.titulo}`}
-          width={200}
-          height={620}
-        />
-        <div className='flex flex-col justify-start gap-1'>
-          <h2>{productId.titulo}</h2>
-          <p className='font-bold'>{productId.precio}</p>
-          <p className='text-sm'>{productId.descripcion}</p>
-          <span>Cantidad:  <span>{productId.cantidad}</span></span>
-          <span>Total de la compra: {productId.cantidad * productId.precio}</span>
-          <button className='bg-blue-400 p-2' onClick={() => handleClick()}>Finalizar Compra</button>
+      <section className='p-3'>
+        <div className='flex flex-col justify-between items-center p-4 border border-gray-400 rounded-md text-slate-200'>
+          <Image
+            src={productId.imagen}
+            alt={`Imagen de ${productId.titulo}`}
+            width={200}
+            height={620}
+          />
+          <div className='flex flex-col p-4 justify-start gap-1'>
+            <h2 className='font-bold text-orange-400'>{productId.titulo}</h2>
+            <p className='font-bold'>${productId.precio} US</p>
+            <p className='text-sm'>{productId.descripcion}</p>
+            <span>Cantidad:  <span>{productId.cantidad}</span></span>
+            <span>Total de la compra: {productId.cantidad * productId.precio}</span>
+            <button className='bg-orange-400 p-2 rounded-md' onClick={() => handleClick()}>Finalizar Compra</button>
+          </div>
         </div>
-      </div>
+      </section>
   )
 }

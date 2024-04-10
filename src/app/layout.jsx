@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-[#0a0a0a]">
         <ProductsProvider>
           <header>
             <Navbar />
@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
             {children}
           </main>
         </ProductsProvider>
-        <footer className="text-center leading-[3rem]">
+        <footer className="text-center leading-[3rem] text-slate-200">
           © {new Date().getFullYear()} AsTienda
         </footer>
       </body>

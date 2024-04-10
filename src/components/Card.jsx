@@ -10,26 +10,27 @@ export default function Card({ product }) {
 
 
     return (
-        <div className='flex justify-between border border-black rounded-md p-4 gap-6'>
+        <div className='flex flex-col justify-between items-center p-4 border border-gray-400 rounded-md text-slate-200'>
             <Image
                 src={product.imagen}
                 alt={`Imagen de ${product.titulo}`}
-                width={200}
-                height={620}
+                width='250'
+                height='250'
             />
-            <div className='flex flex-col justify-start gap-1'>
-                <h2>{product.titulo}</h2>
-                <p className='font-bold'>{product.precio}</p>
+            <div className='flex flex-col p-4 justify-start gap-1'>
+                <h2 className='font-bold text-orange-400'>{product.titulo}</h2>
+                <p className='font-bold'>${product.precio} US</p>
                 <p className='text-sm'>{product.descripcion}</p>
                 <span>Cantidad:</span>
-                <div className='flex items-center gap-3'>
-                    <button className='border p-2' onClick={() => handleRest(product.id)}>-</button>
+                <div className='flex justify-center items-center gap-3'>
+                    <button className='border  w-8 rounded-md' onClick={() => handleRest(product.id)}>-</button>
                     <span>{product.cantidad}</span>
-                    <button className='border p-2' onClick={() => handleSum(product.id)}>+</button>
+                    <button className='border  w-8 rounded-md' onClick={() => handleSum(product.id)}>+</button>
                 </div>
-                <button className='bg-blue-400 p-2 rounded-md' onClick={() => handleProductId(product.id)}>Comprar Ahora</button>
-                <button className='bg-blue-200 p-2 rounded-md' onClick={() => handleCart(product.id)}>Agregar al carrito</button>
+                <button className='bg-orange-400 p-2 text-slate-200 rounded-md' onClick={() => handleProductId(product.id)}>Comprar Ahora</button>
+                <button className='bg-orange-50 p-2 rounded-md text-black' onClick={() => handleCart(product.id)}>Agregar al carrito</button>
             </div>
         </div>
     )
 }
+ 
