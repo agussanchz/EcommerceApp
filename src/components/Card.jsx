@@ -10,7 +10,7 @@ export default function Card({ product }) {
 
 
     return (
-        <div className='flex flex-col justify-between items-center p-4 border border-black rounded-xl text-slate-200 sm:w-72 md:w-96 bg-[#9ca3af16]  hover:border-orange-400'>
+        <div className='flex flex-col justify-between items-center p-4 border border-black rounded-xl text-slate-200 sm:w-72 md:w-96 bg-[#9ca3af16]  xl:hover:border-orange-400'>
             <Image
                 src={product.imagen}
                 alt={`Imagen de ${product.titulo}`}
