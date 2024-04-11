@@ -17,8 +17,9 @@ export default function Checkout() {
     productId.length === 0 ?
       "No ha seleccionado ningun producto"
       :
+      
       <section className='p-3'>
-        <div className='flex flex-col justify-between items-center p-4 border border-gray-400 rounded-md text-slate-200'>
+        <div className='flex flex-col justify-between items-center p-4 border border-black rounded-xl text-slate-200 sm:w-72 md:w-96 bg-[#9ca3af16]'>
           <Image
             src={productId.imagen}
             alt={`Imagen de ${productId.titulo}`}

@@ -23,10 +23,10 @@ export default function Products() {
                 }
                 return false
             })
-            
-            if(filterValues.length === 0){
+
+            if (filterValues.length === 0) {
                 setError("Error en la busqueda, verifique si el producto existe.")
-            }else{
+            } else {
                 setError("")
             }
             setFilteredProducts(filterValues)
@@ -35,7 +35,7 @@ export default function Products() {
         if (search.length === 2) {
             setFilteredProducts(productsIphone)
         }
-        
+
     }
 
 
@@ -59,12 +59,14 @@ export default function Products() {
                         {error}
                     </span>
                 }
-                {filteredProducts.map((product) => (
-                    <Card
-                        product={product}
-                        key={product.id}
-                    />
-                ))}
+                <div className='flex flex-wrap justify-center gap-3' >
+                    {filteredProducts.map((product) => (
+                        <Card
+                            product={product}
+                            key={product.id}
+                        />
+                    ))}
+                </div>
             </div>
         </>
     )

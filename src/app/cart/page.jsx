@@ -32,7 +32,7 @@ export default function Page() {
         </>
       ) : (
         cart.map((prod, index) => (
-          <div key={index} className='flex flex-col justify-between items-center p-4 border border-gray-400 rounded-md text-slate-200'>
+          <div key={index} className='flex flex-col justify-between items-center p-4 border border-black rounded-xl text-slate-200 sm:w-72 md:w-96 bg-[#9ca3af16]'>
             <Image
               src={prod.imagen}
               alt={`Imagen de ${prod.titulo}`}
