@@ -10,16 +10,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-[#0a0a0a]">
+      <body className="flex flex-col min-h-screen bg-[#0a0a0a]">
         <ProductsProvider>
           <header>
             <Navbar />
           </header>
-          <main className="">
+          <main className="flex-grow">
             {children}
           </main>
         </ProductsProvider>
-        <footer className="text-center leading-[3rem] text-slate-200 bg-black">
+        <footer className="text-center leading-[3rem] text-slate-200 bg-black mt-auto">
           © {new Date().getFullYear()} AsTienda
         </footer>
       </body>

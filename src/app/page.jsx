@@ -10,7 +10,7 @@ export default function Home() {
           <a href='#products' className='animate-twice animate-duration-1000 animate-bounce text-9xl text-orange-400'>↓</a>
         </section>
         <section id='products' className="flex flex-col justify-center items-center gap-10 bg-black text-center w-screen h-screen relative">
-          <video src="/xlarge.mp4" className="absolute inset-0 object-cover w-full h-full" autoPlay loop muted></video>
+        <video src="/xlarge.mp4" className="absolute inset-0 object-cover w-full h-full" autoPlay loop muted playsInline></video>
           <div className="relative z-10 flex flex-col justify-center items-center gap-4">
             <h2 className='font-bold text-7xl text-slate-200'>Conoce nuestros</h2>
             <span className='font-bold text-7xl text-orange-300'>Productos.</span>

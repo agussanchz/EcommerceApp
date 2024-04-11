@@ -21,8 +21,8 @@ export default function Page() {
     <div className='flex flex-col justify-center  p-4 gap-4 items-center'>
       {cart.length === 0 ? (
         <>
-        <div className='flex flex-col gap-12 items-center'>
-          <h2 className='font-bold text-8xl text-slate-200'>
+        <div className='flex flex-col justify-center gap-12 items-center h-screen'>
+          <h2 className='font-bold text-8xl text-slate-200 '>
             Su carrito está vacío <span className='text-orange-400'>:(</span>
           </h2>
           <Link href={'/products'} className='font-bold bg-orange-400 rounded-md  p-3 text-slate-200 hover:border hover:border-orange-400 hover:bg-transparent'>
