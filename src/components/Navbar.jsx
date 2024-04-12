@@ -10,7 +10,7 @@ import { useProducts } from '@/context/ProductsContext';
 function OptionsNav({ closeMenu }) {
 
   return (
-    <div className='bg-[#000]  absolute flex justify-center w-screen h-screen animate-fade-down'>
+    <div className='bg-[#000]  relative flex justify-center w-screen h-screen animate-fade-down'>
       <ul className='flex flex-col font-bold text-6xl gap-5 justify-center items-center p-3 text-orange-400 '>
         <Link href='/' onClick={closeMenu}>Inicio</Link>
         <Link href='/products' onClick={closeMenu}>Productos</Link>
