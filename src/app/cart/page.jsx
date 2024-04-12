@@ -18,7 +18,7 @@ export default function Page() {
   }
 
   return (
-    <div className='flex flex-col justify-center  p-4 gap-4 items-center'>
+    <div className='flex flex-wrap justify-center gap-3 p-3'>
       {cart.length === 0 ? (
         <>
         <div className='flex flex-col justify-center gap-12 items-center h-screen'>
