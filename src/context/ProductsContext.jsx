@@ -18,6 +18,9 @@ export const ProductsProvider = ({ children }) => {
     const [productId, setProductId] = useState([])
     const [cart, setCart] = useState([])
 
+    //Estado para manejar el modal
+    const [showModal, setShowModal] = useState(false);
+
     const router = useRouter()
 
     //Funcion para aumentar la cantidad
@@ -78,7 +81,7 @@ export const ProductsProvider = ({ children }) => {
         }else {
             setCart([...cart, productId])
         }
-        alert("Producto agregado al carrito")
+        setShowModal(true)
     }
 
     // Funcion para eliminar del carrito 
@@ -97,13 +100,15 @@ export const ProductsProvider = ({ children }) => {
                 productId,
                 filteredProducts,
                 cart,
+                showModal,
                 handleRest,
                 handleSum,
                 handleProductId,
                 setFilteredProducts,
                 handleCart,
                 handleDelete,
-                setCart
+                setCart,
+                setShowModal
             }}
         >
             {children}
