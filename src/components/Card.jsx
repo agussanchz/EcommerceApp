@@ -4,9 +4,6 @@ import React from 'react'
 import { useProducts } from '@/context/ProductsContext'
 import { FaArrowUp } from "react-icons/fa";
 import { FaArrowDown } from "react-icons/fa";
-import ModalCard from './modalCard';
-import { IoClose } from 'react-icons/io5';
-import Link from 'next/link';
 
 export default function Card({ product }) {
     // Obtengo las funciones para restar y aumentar la cantidad de useContext
@@ -42,13 +39,6 @@ export default function Card({ product }) {
                     <button className='bg-orange-50 p-2 rounded-md text-black' onClick={() => handleCart(product.id)}>Agregar al carrito</button>
                 </div>
             </div>
-            <ModalCard isOpen={showModal} onClose={() => setShowModal(false)}>
-                <IoClose  onClick={()=> setShowModal(false)} className='w-8 h-10 cursor-pointer text-orange-300'/>
-                <div className='flex flex-col justify-center gap-4 items-center text-white shadow-sm shadow-black bg-[#2425279a] w-96 h-60 rounded-xl'>
-                    <h2 className='text-2xl'>Producto agregado al carrito.</h2>
-                    <Link href={'/cart'} className='text-center  bg-orange-400 bg-opacity-75 rounded-md w-32 p-2 text-slate-200 hover:border hover:border-orange-400 hover:bg-transparent' onClick={()=> setShowModal(false)}>Ir al carrito</Link>
-                </div>
-            </ModalCard>
         </div>
     )
 }
