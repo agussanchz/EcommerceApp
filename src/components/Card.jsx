@@ -4,10 +4,11 @@ import React from 'react'
 import { useProducts } from '@/context/ProductsContext'
 import { FaArrowUp } from "react-icons/fa";
 import { FaArrowDown } from "react-icons/fa";
+import ModalCart from './ModalCart';
 
 export default function Card({ product }) {
     // Obtengo las funciones para restar y aumentar la cantidad de useContext
-    const { handleSum, handleRest, handleProductId, handleCart, showModal, setShowModal } = useProducts()
+    const { handleSum, handleRest, handleProductId, handleCart } = useProducts()
 
 
     return (
@@ -39,6 +40,7 @@ export default function Card({ product }) {
                     <button className='bg-orange-50 p-2 rounded-md text-black' onClick={() => handleCart(product.id)}>Agregar al carrito</button>
                 </div>
             </div>
+            <ModalCart />
         </div>
     )
 }
